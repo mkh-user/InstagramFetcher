@@ -221,7 +221,7 @@ delay_text_box.grid(row=7, column=1, padx=10, pady=10)
 express_mode_check_box = tk.Checkbutton(root, text="Express Mode", variable=S_express_mode)
 express_mode_check_box.grid(row=8, column=2, padx=10, pady=10)
 
-label_9 = tk.Label(root, text="Parts:")
+label_9 = tk.Label(root, text="Max Request:")
 label_9.grid(row=7, column=2, padx=10, pady=10)
 
 max_text_box = tk.Entry(root)
