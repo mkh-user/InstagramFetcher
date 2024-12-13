@@ -50,9 +50,6 @@ def set_root():
 		root.columnconfigure(column, minsize=200)
 	for row in range(15):
 		root.rowconfigure(row, minsize=min_row_size[row])
-	# ~ root.columnconfigure(2, minsize=100, weight=1)
-	root.rowconfigure(1, minsize=1)
-	# ~ root.rowconfigure(2, minsize=50, weight=1)
 
 def set_manu_bar():
 	file_menu = tk.Menu(menu_bar, tearoff=0)
