@@ -257,7 +257,7 @@ def add_tooltip():
 	ToolTip(label_8, "تاخیر بین ارسال هر درخواست")
 	ToolTip(express_mode_check_box, "حالت سریع (ارسال همزمان تمام درخواست ها) - در تعداد بالا به صورت خودکار غیرفعال می شود")
 	ToolTip(no_express_limit_check_box, "فعال نگه داشتن حالت سریع در تعداد بالا (احتمال مسدود شدن)")
-	ToolTip(label_9, "تقسیم درخواست ها به تعداد مشخص")
+	ToolTip(label_9, "حداکثر ارسال درخواست (برای هر نام کاربری)")
 	ToolTip(run_button, "آغاز استخراج")
 
 tooltip_label = tk.Label(root)
