@@ -304,12 +304,11 @@ def _parser() -> tuple:
 
     exp_speed = export_parser.add_argument_group(title="speed arguments (UPGRADE)")
     exp_exc_speed = exp_speed.add_mutually_exclusive_group()
-    exp_exc_speed.add_argument("-d", "--delay", type=float,
-                        help="delay between requests")
+
     exp_exc_speed.add_argument("-e", "--express", action="store_true",
                         help="express requests (deactivated if > 109 total usernames to avoid blocking)")
-    exp_exc_speed.add_argument("-m", "--max", type=int,
-                        help="max items in export")
+    exp_exc_speed.add_argument("-d", "--delay", type=float,
+                        help="delay between requests")
 
     exp_optional = export_parser.add_argument_group(title="optional arguments")
     exp_optional.add_argument("--no-exp-limit", action="store_true",
@@ -319,7 +318,9 @@ def _parser() -> tuple:
     #                    help="relaunch automatically the scraping while all usernames haven't been scraped")
     exp_optional.add_argument('-h', '--help', action='help', default=SUPPRESS,
                         help='show this help message and exit')
-    
+    exp_exc_speed.add_argument("-m", "--max", type=int, default=-1,
+                        help="max items in export")
+
     export_parser.set_defaults(wich="export")
 
     # compare
