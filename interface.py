@@ -235,7 +235,6 @@ run_button.grid(row=9,column=4, padx=10, pady=10)
 
 def add_tooltip():
 	ToolTip(label_1, "نام کاربری هدف")
-	ToolTip(label_2, "آیدی کاربر هدف")
 	ToolTip(label_3, "هدف")
 	ToolTip(label_4, "روش ورود")
 	ToolTip(ssid_login_mode, "استفاده از کد رابط")
