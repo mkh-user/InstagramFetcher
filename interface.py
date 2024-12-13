@@ -67,17 +67,17 @@ def close():
 	root.destroy()
 
 def set_preset():
-	messagebox.showinfo("NOT SET!","This part of application isn't set.")
+	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
 
 def use_preset():
-	messagebox.showinfo("NOT SET!","This part of application isn't set.")
+	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
 
 def docs():
-	messagebox.showinfo("NOT SET!","This part of application isn't set.")
+	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
 
 def about():
-	messagebox.showinfo("About Program", """Instagram Fetcher V1.0 Alpha
-This alpha version JUST FOR TEST!
+	messagebox.showinfo("About Program", """Instagram Fetcher V1.0 Stable
+NOTE: Not checked in practice!
 
 License: MIT 2024 By Mahan Khalili""")
 
