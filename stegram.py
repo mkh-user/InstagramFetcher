@@ -412,7 +412,9 @@ class _instagram:
                         else:
                             self.blocked = True
                         
-                    if self.max != -1 and i >= self.max : break
+                    if self.max != -1 and i >= self.max :
+                        print(f"Blocked by max counter, generate part id...}")
+                        self.blocked = True
                     
             return ret
 
