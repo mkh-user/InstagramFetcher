@@ -143,12 +143,6 @@ label_1.grid(row=0,column=0, padx=10, pady=10)
 target_username_text_box = tk.Entry(root)
 target_username_text_box.grid(row=0,column=1, padx=10, pady=10)
 
-label_2 = tk.Label(root, text="Target ID:")
-label_2.grid(row=0, column=2, padx=10, pady=10)
-
-target_id_text_box = tk.Entry(root)
-target_id_text_box.grid(row=0,column=3, padx=10, pady=10)
-
 label_3 = tk.Label(root, text="Target List:")
 label_3.grid(row=1, column=0, padx=10, pady=10)
 
