@@ -224,8 +224,8 @@ express_mode_check_box.grid(row=8, column=2, padx=10, pady=10)
 label_9 = tk.Label(root, text="Parts:")
 label_9.grid(row=7, column=2, padx=10, pady=10)
 
-parts_text_box = tk.Entry(root)
-parts_text_box.grid(row=7, column=3, padx=10, pady=10)
+max_text_box = tk.Entry(root)
+max_text_box.grid(row=7, column=3, padx=10, pady=10)
 
 no_express_limit_check_box = tk.Checkbutton(root, text="No Express Limit", variable=O_no_exp_limit)
 no_express_limit_check_box.grid(row=8, column=3, padx=10, pady=10)
