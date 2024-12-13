@@ -34,6 +34,8 @@ menu_bar = tk.Menu(root)
 
 min_row_size = [40,40,40,60,40,40,60,40,40,40,40,40,40,40,40,40,40]
 
+part_id = ""
+
 def set_root():
 	root.title("Instagram Fetcher V1.0 Alpha")
 	window_width = 1024
