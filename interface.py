@@ -7,7 +7,7 @@ from openpyxl import load_workbook
 root = tk.Tk()
 
 P_target_username = ""
-P_target_id = ""
+
 P_target_list = tk.StringVar()
 
 L_login_mode = tk.StringVar()
