@@ -1,0 +1,19 @@
+Required programs:
+- Python +3.11
+
+Required python packages:
+- openpyxl
+- subprocess
+- tkinter
+- argparse
+- stringcolor
+- re
+- tqdm
+- requests
+- random
+- aiohttp
+- json
+- datetime
+- asyncio
+- os
+- sys
