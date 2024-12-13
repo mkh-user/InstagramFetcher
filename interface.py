@@ -123,6 +123,7 @@ def select_source_file():
 		xlsx_file_path.config(text=f"{L_credentials_file}")
 
 def select_export_path():
+	global E_path
 	E_path = filedialog.askdirectory(title="Select a Folder")
 	if E_path:
 		path_file_path.config(text=f"{E_path}")
