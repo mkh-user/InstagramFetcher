@@ -117,6 +117,7 @@ def check_login_mode():
 		xlsx_file_path.grid(row=3, column=2, columnspan=2,  padx=10, pady=10)
 
 def select_source_file():
+	global L_credentials_file
 	L_credentials_file = filedialog.askopenfilename(title="Select a File", filetypes=[("Excel Workbook", "*.xlsx")])
 	if L_credentials_file:
 		xlsx_file_path.config(text=f"{L_credentials_file}")
