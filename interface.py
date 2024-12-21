@@ -118,6 +118,9 @@ def select_source_file():
 	L_credentials_file = filedialog.askopenfilename(title="Select a File", filetypes=[("Excel Workbook", "*.xlsx")])
 	if L_credentials_file:
 		xlsx_file_path.config(text=f"{L_credentials_file}")
+	else:
+		messagebox.showerror("ERROR", "Please select a source file")
+
 
 def select_export_path():
 	global E_path
