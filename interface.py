@@ -9,35 +9,27 @@ from openpyxl import load_workbook
 root = tk.Tk()
 # endregion
 
+# region global variables
 P_target_username = ""
-
 P_target_list = tk.StringVar()
-
 L_login_mode = tk.StringVar()
-
 L_credentials = []
 L_session_id = ""
-
 L_credentials_file = ""
-
 E_all_infos = tk.IntVar()
 E_only_usernames = tk.IntVar()
-
 E_format = tk.StringVar()
 E_path = ""
 E_name = ""
-
 S_delay = -1
 S_express_mode = tk.IntVar()
 S_parts = -1
-
 O_no_exp_limit = tk.IntVar()
-
 menu_bar = tk.Menu(root)
+part_id = ""
+# endregion
 
 min_row_size = [40,40,40,60,40,40,60,40,40,40,40,40,40,40,40,40,40]
-
-part_id = ""
 
 def set_root():
 	root.title("Instagram Fetcher V1.0 Alpha")
