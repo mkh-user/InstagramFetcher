@@ -33,6 +33,7 @@ part_id = ""
 min_row_size = [40,40,40,60,40,40,60,40,40,40,40,40,40,40,40,40,40]
 # endregion
 
+# region initializing functions
 def set_root(title, width, height, column_count):
 	root.title(title)
 	window_width = width
@@ -56,6 +57,7 @@ def set_manu_bar(menu_dict):
 			sub_menu.add_command(label=item, command=menu_dict[menu][item])
 		menu_bar.add_cascade(label=menu, menu=sub_menu)
 	root.config(menu=menu_bar)
+# endregion
 
 def set_preset():
 	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
