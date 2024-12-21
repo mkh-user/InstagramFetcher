@@ -230,6 +230,20 @@ set_manu_bar()
 
 label_1 = tk.Label(root, text="Target Username:")
 label_1.grid(row=0,column=0, padx=10, pady=10)
+set_root("Instagram Fetcher V1.1 Alpha", 1024, 540, 20)
+
+menus = {
+	"File" : {
+		"Set as default preset" : set_preset,
+		"Use default preset" : use_preset,
+		"Exit" : root.destroy,
+	},
+	"Help" : {
+		"Documentation" : docs,
+		"About" : about,
+	}
+}
+set_manu_bar(menus)
 
 target_username_text_box = tk.Entry(root)
 target_username_text_box.grid(row=0,column=1, padx=10, pady=10)
