@@ -258,8 +258,6 @@ def append_other(command):
 	return command
 
 
-label_1 = tk.Label(root, text="Target Username:")
-label_1.grid(row=0,column=0, padx=10, pady=10)
 def check_error(variant, message):
 	if variant == "":
 		messagebox.showerror("ERROR", message)
@@ -306,12 +304,12 @@ menus = {
 set_manu_bar(menus)
 # endregion
 
+add_label("Target Username:", "نام کاربری هدف", 0, 0)
 
 target_username_text_box = tk.Entry(root)
 target_username_text_box.grid(row=0,column=1, padx=10, pady=10)
 
-label_3 = tk.Label(root, text="Target List:")
-label_3.grid(row=1, column=0, padx=10, pady=10)
+add_label("Target List:", "هدف", 1, 0)
 
 P_target_list.set("followers")
 followers_target_list = tk.Radiobutton(root, text="Followers", variable=P_target_list, value="followers", command=check_target_list)
@@ -323,8 +321,7 @@ both_target_list.grid(row=1, column=3, padx=10, pady=10)
 mutuals_target_list = tk.Radiobutton(root, text="Mutuals", variable=P_target_list, value="mutuals", command=check_target_list)
 mutuals_target_list.grid(row=1, column=4, padx=10, pady=10)
 
-label_4 = tk.Label(root, text="Login Mode:")
-label_4.grid(row=2, column=0, padx=10, pady=10)
+add_label("Login Mode:", "روش ورود", 2, 0)
 
 L_login_mode.set("ssid")
 ssid_login_mode = tk.Radiobutton(root, text="Session ID", variable=L_login_mode, value="ssid", command=check_login_mode)
@@ -352,8 +349,7 @@ all_infos_check_box.grid(row=8, column=0, padx=10, pady=10)
 only_usernames_check_box = tk.Checkbutton(root, text="Only Export Usernames", variable=E_only_usernames)
 only_usernames_check_box.grid(row=8, column=1, padx=10, pady=10)
 
-label_5 = tk.Label(root, text="Export Format:")
-label_5.grid(row=4, column=0, padx=10, pady=10)
+add_label("Export Format:", "فرمت فایل خروجی", 4, 0)
 
 E_format.set("excel")
 xlsx_format = tk.Radiobutton(root, text=".xlsx", variable=E_format, value="excel")
@@ -363,22 +359,19 @@ csv_format.grid(row=4, column=2, padx=10, pady=10)
 json_format = tk.Radiobutton(root, text=".json", variable=E_format, value="json")
 json_format.grid(row=4, column=3, padx=10, pady=10)
 
-label_6 = tk.Label(root, text="Export Path:")
-label_6.grid(row=5, column=0, padx=10, pady=10)
+add_label("Export Path:", "مسیر فایل خروجی (پوشه فایل)", 5, 0)
 
 path_action_button = tk.Button(root, text="Select Folder", command=select_export_path)
 path_action_button.grid(row=5, column=1, padx=10, pady=10)
 path_file_path = tk.Label(root, text="")
 path_file_path.grid(row=5, column=2, columnspan=2,  padx=10, pady=10)
 
-label_7 = tk.Label(root, text="File Name:")
-label_7.grid(row=6, column=0, padx=10, pady=10)
+add_label("File Name:", "نام فایل خروجی", 6, 0)
 
 file_name_text_box = tk.Entry(root)
 file_name_text_box.grid(row=6, column=1, padx=10, pady=10)
 
-label_8 = tk.Label(root, text="Delay:")
-label_8.grid(row=7, column=0, padx=10, pady=10)
+add_label("Delay:", "تاخیر بین ارسال هر درخواست", 7, 0)
 
 delay_text_box = tk.Entry(root)
 delay_text_box.grid(row=7, column=1, padx=10, pady=10)
@@ -386,8 +379,7 @@ delay_text_box.grid(row=7, column=1, padx=10, pady=10)
 express_mode_check_box = tk.Checkbutton(root, text="Express Mode", variable=S_express_mode)
 express_mode_check_box.grid(row=8, column=2, padx=10, pady=10)
 
-label_9 = tk.Label(root, text="Max Request:")
-label_9.grid(row=7, column=2, padx=10, pady=10)
+add_label("Max Request:", "حداکثر ارسال درخواست (با هر نام کاربری و رمز عبور)", 7, 2)
 
 max_text_box = tk.Entry(root)
 max_text_box.grid(row=7, column=3, padx=10, pady=10)
@@ -399,9 +391,6 @@ run_button = tk.Button(root, text="Run", command=run_export, height=1, width=20)
 run_button.grid(row=9,column=4, padx=10, pady=10)
 
 def add_tooltip():
-	ToolTip(label_1, "نام کاربری هدف")
-	ToolTip(label_3, "هدف")
-	ToolTip(label_4, "روش ورود")
 	ToolTip(ssid_login_mode, "استفاده از کد رابط")
 	ToolTip(username_login_mode, "تنظیم دستی نام کاربری و رمز عبور")
 	ToolTip(xlsx_login_mode, "وارد کردن نام کاربری و رمز عبور از فایل اکسل")
@@ -411,17 +400,12 @@ def add_tooltip():
 	ToolTip(xlsx_label, "فایل منبع نام کاربری و رمز عبور ها")
 	ToolTip(all_infos_check_box, "استخراج تمام اطلاعات ممکن (بدون ارسال درخواست بیشتر)")
 	ToolTip(only_usernames_check_box, "فقط استخراج نام کاربری ها")
-	ToolTip(label_5, "فرمت فایل خروجی")
 	ToolTip(xlsx_format, "Exel Workbook")
 	ToolTip(csv_format, "Comma Separated Values")
 	ToolTip(json_format, "Json Format")
-	ToolTip(label_6, "مسیر فایل خروجی (پوشه فایل)")
 	ToolTip(path_file_path, "مسیر انتخاب شده برای خروجی")
-	ToolTip(label_7, "نام فایل خروجی")
-	ToolTip(label_8, "تاخیر بین ارسال هر درخواست")
 	ToolTip(express_mode_check_box, "حالت سریع (ارسال همزمان تمام درخواست ها) - در تعداد بالا به صورت خودکار غیرفعال می شود")
 	ToolTip(no_express_limit_check_box, "فعال نگه داشتن حالت سریع در تعداد بالا (احتمال مسدود شدن)")
-	ToolTip(label_9, "حداکثر ارسال درخواست (برای هر نام کاربری)")
 	ToolTip(run_button, "آغاز استخراج")
 
 tooltip_label = tk.Label(root)
