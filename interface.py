@@ -307,6 +307,7 @@ menus = {
 set_manu_bar(menus)
 # endregion
 
+# region ui
 add_label("Target Username:", "نام کاربری هدف", 0, 0)
 
 target_username_text_box = tk.Entry(root)
@@ -393,6 +394,7 @@ no_express_limit_check_box.grid(row=8, column=3, padx=10, pady=10)
 run_button = tk.Button(root, text="Run", command=run_export, height=1, width=20)
 run_button.grid(row=9,column=4, padx=10, pady=10)
 
+
 def add_tooltip():
 	ToolTip(ssid_login_mode, "استفاده از کد رابط")
 	ToolTip(username_login_mode, "تنظیم دستی نام کاربری و رمز عبور")
@@ -411,9 +413,11 @@ def add_tooltip():
 	ToolTip(no_express_limit_check_box, "فعال نگه داشتن حالت سریع در تعداد بالا (احتمال مسدود شدن)")
 	ToolTip(run_button, "آغاز استخراج")
 
+
 tooltip_label = tk.Label(root)
 tooltip_label.grid(row=9, column=0, padx=10, pady=10, columnspan=4)
 
 add_tooltip()
+# endregion
 
 root.mainloop()
