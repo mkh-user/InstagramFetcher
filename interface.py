@@ -234,23 +234,27 @@ def run_default_modes(command):
 def append_other(command):
 	if E_all_infos.get() == 1:
 		command += " --all-infos "
+
 	if E_only_usernames.get() == 1:
 		command += " --only-usernames "
+
 	command += " -f " + E_format.get()
-	if E_path == "":
-		messagebox.showerror("ERROR", "Please select a path")
-		return "err"
+
+	if check_error(E_path, "Please select a folder"): return "err"
 	command += " --path \"" + E_path + "\""
-	if file_name_text_box.get() == "":
-		messagebox.showerror("ERROR", "Please enter a file name")
-		return "err"
+
+	if check_error(file_name_text_box.get(), "Please select a file name"): return "err"
 	command += " --name " + file_name_text_box.get()
+
 	if S_express_mode == 1:
 		command += " -e "
+
 	elif delay_text_box.get() != "":
 		command += " -d " + delay_text_box.get()
+
 	if O_no_exp_limit == 1:
 		command += " --no-exp-limit "
+
 	return command
 
 set_root()
