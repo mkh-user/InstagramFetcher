@@ -143,76 +143,93 @@ def run_export():
 		command += " -u " + P_target_username
 
 		err = False
-		if L_login_mode.get() == "ssid":
-			if ssid_text_box.get() == "":
-				messagebox.showerror("ERROR", "Please enter a SSID")
-				break
-			command += " -ssid " + ssid_text_box.get()
-		elif L_login_mode.get() == "username":
-			if username_text_box.get() == "" or password_text_box.get() == "":
-				messagebox.showerror("ERROR", "Please enter a username and password")
-				break
-			command += " -lcrd " + username_text_box.get() + " " + password_text_box.get()
-		if L_login_mode.get() == "xlsx":
-			workbook = load_workbook(L_credentials_file)
-			sheet = workbook["Sheet1"]
-			max_row = sheet.max_row
-			for row in range(1, max_row+1):
-				if row == 1:
-					command += " -t " + P_target_list.get()
-				else:
-					command += " --part " + part_id
-				command += " -lcrd " + sheet.cell(row=row, column=1).value + " " + sheet.cell(row=row, column=2).value
 
-				append_other(command)
+		match L_login_mode.get():
+			case "ssid":
+				if check_error(ssid_text_box.get(), "Please enter a SSID"): break
+				command += " -ssid " + ssid_text_box.get()
 
-				if max_text_box.get() != "":
-					command += " -m " + max_text_box.get()
-				else:
-					messagebox.showerror("ERROR", "Please enter a max rate")
-					err = True
-					break
+				run_default_modes(command)
 
-				print(command)
-				try:
-					result = sp.run(command, shell=True, check=True, text=True, capture_output=True)
-					print(f"Output:\n{result.stdout}")
-					result_text = result.stdout
-					start_index = result_text.find("Part exported under")
-					if start_index != -1:
-						start_index += len("Part exported under")
-						part_id = result_text[start_index:].strip()
+
+			case "username":
+				if check_error(username_text_box.get(), "Please enter a username"): break
+				if check_error(password_text_box.get(), "Please enter a password"): break
+				command += " -lcrd " + username_text_box.get() + " " + password_text_box.get()
+
+				run_default_modes(command)
+
+			case "xlsx":
+				workbook = load_workbook(L_credentials_file)
+				sheet = workbook["Sheet1"]
+				max_row = sheet.max_row
+				for row in range(1, max_row+1):
+					if row == 1:
+						command += " -t " + P_target_list.get()
 					else:
-						if row != max_row:
-							messagebox.showerror("ERROR", "Part export failed, see console for more information")
+						command += " --part " + part_id
+
+					command += " -lcrd " + sheet.cell(row=row, column=1).value + " " + sheet.cell(row=row, column=2).value
+
+					command = append_other(command)
+					if command == "err":
+						break
+
+					if max_text_box.get() != "":
+						command += " -m " + max_text_box.get()
+					else:
+						messagebox.showerror("ERROR", "Please enter a max rate")
+						err = True
+						break
+
+					print(command)
+
+					try:
+						result = sp.run(command, shell=True, check=True, text=True, capture_output=True)
+						print(f"Output:\n{result.stdout}")
+						result_text = result.stdout
+						start_index = result_text.find("Part exported under")
+						if start_index != -1:
+							start_index += len("Part exported under")
+							part_id = result_text[start_index:].strip()
 						else:
-							messagebox.showinfo("SUCCESS", "Export successful")
+							if row != max_row:
+								messagebox.showerror("ERROR", "Part export failed, see console for more information")
+								err = True
+								break
+							else:
+								messagebox.showinfo("SUCCESS", "Export successful")
 
-				except sp.CalledProcessError as e:
-					print(f"Error:\n{e.stderr}")
-					messagebox.showerror("ERROR", "An error occurred, see console for more information")
-					err = True
+					except sp.CalledProcessError as e:
+						print(f"Error:\n{e.stderr}")
+						messagebox.showerror("ERROR", "An error occurred, see console for more information")
+						err = True
+						break
+				if err:
 					break
-			if err:
-				break
-		else:
-			command += " -t " + P_target_list.get()
-			append_other(command)
-			if command == "err":
-				break
 
-			if max_text_box.get() != "":
-				command += " -m " + max_text_box.get()
 
-			print(command)
+def run_default_modes(command):
+	command += " -t " + P_target_list.get()
 
-			try:
-				result = sp.run(command, shell=True, check=True, text=True, capture_output=True)
-				print(f"Output:\n{result.stdout}")
-				messagebox.showinfo("SUCCESS", "Export was successful")
-			except sp.CalledProcessError as e:
-				print(f"Error:\n{e.stderr}")
-				messagebox.showerror("ERROR", "An error occurred, see console for more information")
+	command = append_other(command)
+	if command == "err":
+		return
+
+	if max_text_box.get() != "":
+		command += " -m " + max_text_box.get()
+
+	print(command)
+
+	try:
+		result = sp.run(command, shell=True, check=True, text=True, capture_output=True)
+		print(f"Output:\n{result.stdout}")
+		messagebox.showinfo("SUCCESS", "Export was successful")
+
+	except sp.CalledProcessError as e:
+		print(f"Error:\n{e.stderr}")
+		messagebox.showerror("ERROR", "An error occurred, see console for more information")
+
 
 def append_other(command):
 	if E_all_infos.get() == 1:
