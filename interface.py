@@ -48,20 +48,14 @@ def set_root(title, width, height, column_count):
 	for row in range(len(min_row_size)):
 		root.rowconfigure(row, minsize=min_row_size[row])
 
-def set_manu_bar():
-	file_menu = tk.Menu(menu_bar, tearoff=0)
-	file_menu.add_command(label="Set as default preset", command=set_preset)
-	file_menu.add_command(label="Use default preset", command=use_preset)
-	file_menu.add_command(label="Exit", command=close)
-	menu_bar.add_cascade(label="File", menu=file_menu)
-	help_menu = tk.Menu(menu_bar, tearoff=0)
-	help_menu.add_command(label="Documentation", command=docs)
-	help_menu.add_command(label="About", command=about)
-	menu_bar.add_cascade(label="Help", menu=help_menu)
-	root.config(menu=menu_bar)
 
-def close():
-	root.destroy()
+def set_manu_bar(menu_dict):
+	for menu in menu_dict.keys():
+		sub_menu = tk.Menu(menu_bar, tearoff=0)
+		for item in menu_dict[menu].keys():
+			sub_menu.add_command(label=item, command=menu_dict[menu][item])
+		menu_bar.add_cascade(label=menu, menu=sub_menu)
+	root.config(menu=menu_bar)
 
 def set_preset():
 	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
