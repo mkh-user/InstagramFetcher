@@ -127,6 +127,8 @@ def select_export_path():
 	E_path = filedialog.askdirectory(title="Select a Folder")
 	if E_path:
 		path_file_path.config(text=f"{E_path}")
+	else:
+		messagebox.showerror("ERROR", "Please select a folder")
 
 def run_export():
 	global P_target_username
