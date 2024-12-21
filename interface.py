@@ -79,9 +79,6 @@ NOTE: Not checked in practice!
 License: MIT 2024 By Mahan Khalili""")
 # endregion
 
-def check_target_list():
-	print(P_target_list.get())
-
 def check_login_mode():
 	if L_login_mode.get() == "ssid":
 		ssid_text_box.grid(row=3, column=1, padx=10, pady=10)
