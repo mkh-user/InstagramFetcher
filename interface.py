@@ -80,36 +80,38 @@ License: MIT 2024 By Mahan Khalili""")
 # endregion
 
 def check_login_mode():
-	if L_login_mode.get() == "ssid":
-		ssid_text_box.grid(row=3, column=1, padx=10, pady=10)
-		ssid_label.grid(row=3, column=0, padx=10, pady=10)
-		username_label.grid_forget()
-		username_text_box.grid_forget()
-		password_label.grid_forget()
-		password_text_box.grid_forget()
-		xlsx_label.grid_forget()
-		xlsx_action_button.grid_forget()
-		xlsx_file_path.grid_forget()
-	elif L_login_mode.get() == "username":
-		ssid_text_box.grid_forget()
-		ssid_label.grid_forget()
-		username_label.grid(row=3, column=0, padx=10, pady=10)
-		username_text_box.grid(row=3, column=1, padx=10, pady=10)
-		password_label.grid(row=3, column=2, padx=10, pady=10)
-		password_text_box.grid(row=3, column=3, padx=10, pady=10)
-		xlsx_label.grid_forget()
-		xlsx_action_button.grid_forget()
-		xlsx_file_path.grid_forget()
-	else:
-		ssid_text_box.grid_forget()
-		ssid_label.grid_forget()
-		username_label.grid_forget()
-		username_text_box.grid_forget()
-		password_label.grid_forget()
-		password_text_box.grid_forget()
-		xlsx_label.grid(row=3, column=0, padx=10, pady=10)
-		xlsx_action_button.grid(row=3, column=1, padx=10, pady=10)
-		xlsx_file_path.grid(row=3, column=2, columnspan=2,  padx=10, pady=10)
+	match L_login_mode.get():
+		case "ssid":
+			ssid_text_box.grid(row=3, column=1, padx=10, pady=10)
+			ssid_label.grid(row=3, column=0, padx=10, pady=10)
+			username_label.grid_forget()
+			username_text_box.grid_forget()
+			password_label.grid_forget()
+			password_text_box.grid_forget()
+			xlsx_label.grid_forget()
+			xlsx_action_button.grid_forget()
+			xlsx_file_path.grid_forget()
+		case "username":
+			ssid_text_box.grid_forget()
+			ssid_label.grid_forget()
+			username_label.grid(row=3, column=0, padx=10, pady=10)
+			username_text_box.grid(row=3, column=1, padx=10, pady=10)
+			password_label.grid(row=3, column=2, padx=10, pady=10)
+			password_text_box.grid(row=3, column=3, padx=10, pady=10)
+			xlsx_label.grid_forget()
+			xlsx_action_button.grid_forget()
+			xlsx_file_path.grid_forget()
+		case "xlsx":
+			ssid_text_box.grid_forget()
+			ssid_label.grid_forget()
+			username_label.grid_forget()
+			username_text_box.grid_forget()
+			password_label.grid_forget()
+			password_text_box.grid_forget()
+			xlsx_label.grid(row=3, column=0, padx=10, pady=10)
+			xlsx_action_button.grid(row=3, column=1, padx=10, pady=10)
+			xlsx_file_path.grid(row=3, column=2, columnspan=2,  padx=10, pady=10)
+
 
 def select_source_file():
 	global L_credentials_file
