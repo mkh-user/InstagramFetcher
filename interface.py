@@ -1,7 +1,6 @@
 import subprocess as sp
 import tkinter as tk
-from tkinter import filedialog
-from tkinter import messagebox
+from tkinter import filedialog, messagebox
 from openpyxl import load_workbook
 
 root = tk.Tk()
