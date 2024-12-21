@@ -59,20 +59,25 @@ def set_manu_bar(menu_dict):
 	root.config(menu=menu_bar)
 # endregion
 
+# region menu actions
 def set_preset():
 	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
+
 
 def use_preset():
 	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
 
+
 def docs():
 	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
+
 
 def about():
 	messagebox.showinfo("About Program", """Instagram Fetcher V1.0 Stable
 NOTE: Not checked in practice!
 
 License: MIT 2024 By Mahan Khalili""")
+# endregion
 
 def check_target_list():
 	print(P_target_list.get())
