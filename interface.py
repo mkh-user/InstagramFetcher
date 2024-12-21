@@ -267,6 +267,13 @@ def check_error(variant, message):
 		messagebox.showerror("ERROR", message)
 		return True
 	return False
+# region ui tools
+def add_label(text, tooltip, row, column, padx=10, pady=10):
+	label = tk.Label(root, text=text)
+	label.grid(row=row, column=column, padx=padx, pady=pady)
+	ToolTip(label, tooltip)
+
+
 class ToolTip:
 	def __init__(self, widget, text):
 		self.widget = widget
