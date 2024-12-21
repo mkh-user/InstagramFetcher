@@ -1,7 +1,9 @@
+# region imports
 import subprocess as sp
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from openpyxl import load_workbook
+# endregion
 
 root = tk.Tk()
 
