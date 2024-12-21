@@ -33,19 +33,19 @@ part_id = ""
 min_row_size = [40,40,40,60,40,40,60,40,40,40,40,40,40,40,40,40,40]
 # endregion
 
-def set_root():
-	root.title("Instagram Fetcher V1.0 Alpha")
-	window_width = 1024
-	window_height = 540
+def set_root(title, width, height, column_count):
+	root.title(title)
+	window_width = width
+	window_height = height
 	screen_width = root.winfo_screenwidth()
 	screen_height = root.winfo_screenheight()
 	position_right = int(screen_width / 2 - window_width / 2)
 	position_down = int(screen_height / 2 - window_height / 2)
 	root.geometry(f"{window_width}x{window_height}+{position_right}+{position_down}")
 	root.minsize(window_width,window_height)
-	for column in range(20):
+	for column in range(column_count):
 		root.columnconfigure(column, minsize=200)
-	for row in range(15):
+	for row in range(len(min_row_size)):
 		root.rowconfigure(row, minsize=min_row_size[row])
 
 def set_manu_bar():
