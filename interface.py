@@ -420,4 +420,6 @@ tooltip_label.grid(row=9, column=0, padx=10, pady=10, columnspan=4)
 add_tooltip()
 # endregion
 
+# region finalizing
 root.mainloop()
+# endregion
