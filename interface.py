@@ -346,12 +346,6 @@ xlsx_label = tk.Label(root, text="Excel File:")
 xlsx_action_button = tk.Button(root, text="Select File", command=select_source_file)
 xlsx_file_path = tk.Label(root, text="")
 
-all_infos_check_box = tk.Checkbutton(root, text="Export All Infos", variable=E_all_infos)
-all_infos_check_box.grid(row=8, column=0, padx=10, pady=10)
-
-only_usernames_check_box = tk.Checkbutton(root, text="Only Export Usernames", variable=E_only_usernames)
-only_usernames_check_box.grid(row=8, column=1, padx=10, pady=10)
-
 add_label("Export Format:", "فرمت فایل خروجی", 4, 0)
 
 E_format.set("excel")
@@ -378,6 +372,12 @@ add_label("Delay:", "تاخیر بین ارسال هر درخواست", 7, 0)
 
 delay_text_box = tk.Entry(root)
 delay_text_box.grid(row=7, column=1, padx=10, pady=10)
+
+all_infos_check_box = tk.Checkbutton(root, text="Export All Infos", variable=E_all_infos)
+all_infos_check_box.grid(row=8, column=0, padx=10, pady=10)
+
+only_usernames_check_box = tk.Checkbutton(root, text="Only Export Usernames", variable=E_only_usernames)
+only_usernames_check_box.grid(row=8, column=1, padx=10, pady=10)
 
 express_mode_check_box = tk.Checkbutton(root, text="Express Mode", variable=S_express_mode)
 express_mode_check_box.grid(row=8, column=2, padx=10, pady=10)
