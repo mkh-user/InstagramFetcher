@@ -132,6 +132,7 @@ def select_export_path():
 		messagebox.showerror("ERROR", "Please select a folder")
 # endregion
 
+# region run functions
 def run_export():
 	global P_target_username
 	global part_id
@@ -263,6 +264,8 @@ def check_error(variant, message):
 		messagebox.showerror("ERROR", message)
 		return True
 	return False
+# endregion
+
 # region ui tools
 def add_label(text, tooltip, row, column, padx=10, pady=10):
 	label = tk.Label(root, text=text)
