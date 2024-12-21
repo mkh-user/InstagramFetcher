@@ -290,6 +290,8 @@ class ToolTip:
 	def hide_tooltip(self, event):
 		tooltip_label.config(text="")
 # endregion
+
+# region start
 set_root("Instagram Fetcher V1.1 Alpha", 1024, 540, 20)
 
 menus = {
@@ -304,6 +306,8 @@ menus = {
 	}
 }
 set_manu_bar(menus)
+# endregion
+
 
 target_username_text_box = tk.Entry(root)
 target_username_text_box.grid(row=0,column=1, padx=10, pady=10)
