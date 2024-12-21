@@ -267,6 +267,22 @@ def check_error(variant, message):
 		messagebox.showerror("ERROR", message)
 		return True
 	return False
+class ToolTip:
+	def __init__(self, widget, text):
+		self.widget = widget
+		self.text = text
+		self.tooltip = None
+		self.widget.bind("<Enter>", self.show_tooltip)
+		self.widget.bind("<Leave>", self.hide_tooltip)
+
+
+	def show_tooltip(self, event):
+		tooltip_label.config(text=self.text)
+
+
+	def hide_tooltip(self, event):
+		tooltip_label.config(text="")
+# endregion
 set_root("Instagram Fetcher V1.1 Alpha", 1024, 540, 20)
 
 menus = {
@@ -401,20 +417,6 @@ def add_tooltip():
 
 tooltip_label = tk.Label(root)
 tooltip_label.grid(row=9, column=0, padx=10, pady=10, columnspan=4)
-
-class ToolTip:
-	def __init__(self, widget, text):
-		self.widget = widget
-		self.text = text
-		self.tooltip = None
-		self.widget.bind("<Enter>", self.show_tooltip)
-		self.widget.bind("<Leave>", self.hide_tooltip)
-
-	def show_tooltip(self, event):
-		tooltip_label.config(text=self.text)
-
-	def hide_tooltip(self, event):
-		tooltip_label.config(text="")
 
 add_tooltip()
 
