@@ -29,7 +29,9 @@ menu_bar = tk.Menu(root)
 part_id = ""
 # endregion
 
+# region settings
 min_row_size = [40,40,40,60,40,40,60,40,40,40,40,40,40,40,40,40,40]
+# endregion
 
 def set_root():
 	root.title("Instagram Fetcher V1.0 Alpha")
