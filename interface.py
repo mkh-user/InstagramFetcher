@@ -243,6 +243,11 @@ set_manu_bar()
 
 label_1 = tk.Label(root, text="Target Username:")
 label_1.grid(row=0,column=0, padx=10, pady=10)
+def check_error(variant, message):
+	if variant == "":
+		messagebox.showerror("ERROR", message)
+		return True
+	return False
 set_root("Instagram Fetcher V1.1 Alpha", 1024, 540, 20)
 
 menus = {
