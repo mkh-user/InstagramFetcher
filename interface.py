@@ -5,7 +5,9 @@ from tkinter import filedialog, messagebox
 from openpyxl import load_workbook
 # endregion
 
+# region initializing
 root = tk.Tk()
+# endregion
 
 P_target_username = ""
 
