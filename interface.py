@@ -136,12 +136,11 @@ def run_export():
 	global P_target_username
 	global part_id
 	for i in range(1):
-		if target_username_text_box.get() == "":
-			messagebox.showerror("ERROR", "Please enter a username")
-			break
-		P_target_username = target_username_text_box.get()
 		#P_target_id = target_id_text_box.get()
 		command = "python core.py export"
+
+		if check_error(target_username_text_box.get(), "Please enter a username"): break
+		P_target_username = target_username_text_box.get()
 		command += " -u " + P_target_username
 		#command += " -id " + P_target_id
 		err = False
