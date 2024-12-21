@@ -79,6 +79,7 @@ NOTE: Not checked in practice!
 License: MIT 2024 By Mahan Khalili""")
 # endregion
 
+# region button actions
 def check_login_mode():
 	match L_login_mode.get():
 		case "ssid":
@@ -129,6 +130,7 @@ def select_export_path():
 		path_file_path.config(text=f"{E_path}")
 	else:
 		messagebox.showerror("ERROR", "Please select a folder")
+# endregion
 
 def run_export():
 	global P_target_username
