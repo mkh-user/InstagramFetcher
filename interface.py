@@ -69,7 +69,21 @@ def use_preset():
 
 
 def docs():
-	messagebox.showerror("COMMAND NOT FOUND!", "This part of application not available.")
+	docs_popup = tk.Toplevel(root)
+	docs_popup.title("Documentation")
+	docs_popup.geometry("850x300")
+	docs_popup.minsize(850,300)
+	label = tk.Label(docs_popup, text="""Run App:
+	1. Without console:
+		Right Click on interface.py & select Open With > Choose another app
+		Click on More apps, Scroll down and select Look for another app on this PC
+		Go to Python folder & select pythonw.exe [e.g. C:\Program Files\Python311\pythonw.exe]
+	2. With console:
+		Right Click on interface.py & select Open With > Choose another app
+		Click on More apps, Scroll down and select Look for another app on this PC
+		Go to Python folder & select python.exe [e.g. C:\Program Files\Python311\python.exe]
+		""", wraplength=800, padx=10, pady=10, justify="left")
+	label.pack(expand=True)
 
 
 def about():
