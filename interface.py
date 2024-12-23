@@ -73,9 +73,7 @@ def docs():
 
 
 def about():
-	messagebox.showinfo("About Program", """Instagram Fetcher V1.1 Stable
-NOTE: Not checked in practice!
-
+	messagebox.showinfo("About Program", """Instagram Fetcher V1.1 Stable""", detail="""NOTE: Not checked in practice!
 License: MIT 2024 By Mahan Khalili""")
 # endregion
 
